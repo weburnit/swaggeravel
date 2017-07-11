@@ -1,0 +1,36 @@
+{
+  "name": "swagger/swaggeravel",
+  "description": "This package allows you to: generate RESTful API document using Swagger PHP.",
+  "keywords": [],
+  "homepage": "https://github.com/weburnit/swaggeravel",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "thaonguyen",
+      "email": "thao.nguyen@lazada.com",
+      "homepage": "http://thaonx.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "illuminate/console": "5.*",
+    "illuminate/routing": "5.*",
+    "illuminate/support": "5.*",
+    "zircote/swagger-php": "2.*@dev"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.*",
+    "laravel/lumen-framework": "5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Swagger\\LaraSwagger\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Swagger\\LaraSwagger\\Test\\": "tests"
+    }
+  }
+}
