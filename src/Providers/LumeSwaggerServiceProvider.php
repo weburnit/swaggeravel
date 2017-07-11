@@ -17,7 +17,7 @@ class LumeSwaggerServiceProvider extends SwaggerServiceProvider
      */
     protected function configure()
     {
-        $this->app->configure('lara-swagger');
+        $this->app->configure('swaggeravel');
     }
 
     /**
@@ -28,7 +28,7 @@ class LumeSwaggerServiceProvider extends SwaggerServiceProvider
         $this->app->group(
             [
                 'namespace' => 'Swagger\LaraSwagger\Http\Controllers',
-                'prefix' => config('lara-swagger.routes.prefix')
+                'prefix' => config('swaggeravel.routes.prefix')
             ],
             function (Application $app) {
                 $app->get('/api-docs', array('as' => 'swagger-ai-docs', 'uses' => 'SwaggerController@index'));

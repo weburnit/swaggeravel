@@ -40,7 +40,7 @@ class SwaggerController extends Controller
 
         $response = new Response($this->swaggerGenerator->generateDocs());
 
-        if (config('lara-swagger.routes.cors')) {
+        if (config('swaggeravel.routes.cors')) {
             $response
                 ->header('Access-Control-Allow-Methods', 'GET')
                 ->header('Access-Control-Allow-Headers', 'Content-Type')

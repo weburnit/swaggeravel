@@ -42,13 +42,13 @@ abstract class SwaggerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../../config/lara-swagger.php', 'lara-swagger');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/swaggeravel.php', 'swaggeravel');
 
         $this->app->singleton(SwaggerOption::class, function() {
             return new SwaggerOption(
-                config('lara-swagger.api.directories'),
-                config('lara-swagger.api.excludes'),
-                config('lara-swagger.api.host')
+                config('swaggeravel.api.directories'),
+                config('swaggeravel.api.excludes'),
+                config('swaggeravel.api.host')
             );
         });
         $this->app->singleton(SwaggerGenerator::class, SwaggerGenerator::class);
