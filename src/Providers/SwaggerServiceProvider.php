@@ -42,8 +42,6 @@ abstract class SwaggerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../../config/swaggeravel.php', 'swaggeravel');
-
         $this->app->singleton(SwaggerOption::class, function() {
             return new SwaggerOption(
                 config('swaggeravel.api.directories'),

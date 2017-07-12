@@ -3,15 +3,14 @@
 namespace Swagger\LaraSwagger\Providers;
 
 use Illuminate\Routing\Router;
-use Illuminate\Support\ServiceProvider;
 use Swagger\LaraSwagger\Http\Controllers\SwaggerController;
 
 /**
  * Integrate LaraSwagger into a Laravel application.
  */
-class LaravelSwaggerServiceProvider extends ServiceProvider
+class LaravelSwaggerServiceProvider extends SwaggerServiceProvider
 {
-    public function boot()
+    protected function route()
     {
         /**
          * @var $router Router
@@ -19,12 +18,20 @@ class LaravelSwaggerServiceProvider extends ServiceProvider
         $router = $this->app->make(Router::class);
         $router->group(
             [
-                'namespace' => 'Swagger\LaraSwagger\Http\Controllers',
                 'prefix'    => config('swaggeravel.routes.prefix'),
             ],
             function (Router $app) {
                 $app->get('/api-docs', SwaggerController::class.'@index');
             }
         );
+    }
+
+    /**
+     * Configure
+     *
+     * @return void
+     */
+    protected function configure()
+    {
     }
 }
